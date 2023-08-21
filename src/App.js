@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -21,5 +21,23 @@ function App() {
     </div>
   );
 }
+
+export default App;*/
+import React from 'react';
+import { BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
+import BasicLayout from './views/BasicLayout';
+import Home from './views/Home';
+
+const App = () => {
+    return (
+        <Router>
+            <BasicLayout/>
+            <Routes>
+            <Route path="/home"  element={<Home />}>
+            </Route>
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
