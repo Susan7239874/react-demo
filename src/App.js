@@ -27,16 +27,18 @@ import React from 'react';
 import { BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
 import BasicLayout from './views/BasicLayout';
 import Home from './views/Home';
-
+import ViewportContext from './utils/viewportContext';
 const App = () => {
     return (
+        <ViewportContext>
         <Router>
-            <BasicLayout/>
+            <BasicLayout />
             <Routes>
             <Route path="/home"  element={<Home />}>
             </Route>
             </Routes>
         </Router>
+        </ViewportContext>
     );
 };
 
