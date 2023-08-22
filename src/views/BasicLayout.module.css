@@ -1,0 +1,147 @@
+.headerContaier{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+}
+.header{
+    background-color:#942FFB;
+    display: flex;
+    align-items: center;
+    height:1.1rem;
+    font-size:0;
+    box-sizing: border-box;
+}
+.pcheader{
+    justify-content: space-between;
+    padding: 0 0.6rem 0 0.6rem;
+}
+.mheader{
+    justify-content: center;
+}
+.headerLeft .hlbox{
+    color: #fff;
+    font-weight: bold;
+    font-size:0.26rem;
+    letter-spacing: 2px;
+    vertical-align: baseline;
+    display: inline-block;
+    margin-left:0.33rem;
+}
+.headerLeft  .hlbox:first-child{
+    margin-left:0;
+}
+.headerRight{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.headerRight>img{
+    font-size:0;
+    width:2rem;
+}
+.headerRight div{
+    color:#fff;
+    font-size: 0.23rem;
+    font-weight: bold;
+}
+.headerRight .loginbtn{
+    margin:0 0.1rem 0 5rem;
+}
+.headerRight .startbtn{
+    display: flex;
+    align-items: center;
+    margin:0 0.1rem 0 0.1rem;
+    background-color: #591c97;
+    padding:0.1rem 0.2rem;
+    border-radius: 0.4rem;
+    letter-spacing: 2px;
+}
+.headerRight .startbtn img{
+    font-size:0;
+    width:0.4rem;
+}
+.headerFooter{
+    height:0.85rem;
+    background-color: #3B1364;
+    display: flex;
+    align-items: center;
+}
+.pchaderFooter{
+    justify-content: space-between;
+    padding:0 0.6rem;
+}
+.mheaderFooter{
+    justify-content: center;
+}
+.headerFooter .menubtn{
+    display: inline-block;
+    padding: 0 0.2rem 0 0.2rem;
+    line-height: 0.45rem;
+    background-color: #7626C9;
+    color: #ffffff;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 0.22rem;
+    letter-spacing: 1px;
+}
+.headerFooter .menubtn img{
+    font-size: 0;
+    width: 0.2rem;
+    margin-left:0.1rem;
+}
+.headerFooter .normalbtn{
+    font-size: 0.22rem;
+    color: #ffffff;
+    margin-left:0.4rem;
+}
+.headerFooter .right{
+    background-color: #591C97;
+    border-radius:0.05rem;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+}
+.pcheaderFooter   .right{
+    width: 5rem;
+}
+.mheaderFooter .right{
+    width:7rem;
+}
+.headerFooter .right img{
+    font-size: 0;
+    width: 0.3rem;
+    margin:0 -0.01rem 0 0.1rem;
+}
+.headerFooter .right input{
+    height:0.4rem;
+    text-indent:0.2rem;
+    background-color: #591C97;
+    color: #fff;
+    font-family: 'Scto Grotesk A';
+    font-weight: 400;
+    border: none;
+    width:4rem;
+    vertical-align: baseline;
+    font-size: 0.14rem!important;
+    padding:0.1rem 0;
+}
+input::-webkit-input-placeholder {
+    color: #ffffff;
+    font-size: 0.18rem;
+}
+input:focus {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    outline:none;
+}
+.posterContainer{
+    width: 100%;
+    font-size: 0;
+}
+.posterContainer img{
+    font-size: 0;
+    width: 100%;
+}

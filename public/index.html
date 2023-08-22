@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -25,10 +26,30 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      html{font-size:100px;}
+    </style>
   </head>
   <body>
+  <script>
+
+    var fun = function (document, window) {
+      //获取屏幕可视区域宽度
+      var deviceWidth = document.documentElement.clientWidth;
+      // console.log('deviceWidth', deviceWidth);
+      //区分pc端和移动端，根据设计稿宽度计算根字体大小
+      if (deviceWidth > 760) {
+        //设计稿宽度1920px/实际字体大小100px = 19.20
+        document.documentElement.style.fontSize = deviceWidth / 19.20 + 'px';
+      } else {
+        document.documentElement.style.fontSize = deviceWidth / 7.50 + 'px';
+      }
+    }
+    fun(document, window);
+
+  </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" style="height:100vh;overflow:auto;"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+*{
+  font-size:0.12rem;
+}
+html{
+  font-size: 100px;
+}
+.adm-dropdown{
+  background-color: #d28ef8!important;
+}
+.drownitem .adm-dropdown-item-title-text{
+  font-size:15px;
+  font-weight: bold;
+  color: #fff;
+}
+.drownitem .adm-dropdown-item-title-arrow svg{
+  font-size:12px;
+  line-height: 12px;
+  font-weight: bold;
+}

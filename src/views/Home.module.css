@@ -1,0 +1,25 @@
+.productsContainer{
+    background-color: #e3b2ff;
+}
+.pcproducts{
+    width: 80%;
+    padding-top:0.5rem;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+.mproducts{
+ padding-top:0.5rem;
+}
+.filderBox{
+    background-color: rgba(225, 215, 105, 0.86);
+    padding:0.2rem;
+    border-radius: 5px;
+    margin-bottom:0.3rem;
+    width:98%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    box-sizing: border-box;
+}
