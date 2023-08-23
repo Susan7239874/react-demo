@@ -5,7 +5,7 @@
 
 ### npm run start 启动项目
 
-### 本地地址调试地址为 http://localhost:3000/Home
+### 本地调试地址为 http://localhost:3000/Home
 
  src/utis下的的request.js中有baseUrl，对dev和pro环境进行设置
 
