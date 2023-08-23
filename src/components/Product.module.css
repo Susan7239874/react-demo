@@ -91,4 +91,5 @@
 .innerBox .flag .morebtn{
     color:#282c34;
     font-size: 0.17rem;
+    cursor:pointer;
 }

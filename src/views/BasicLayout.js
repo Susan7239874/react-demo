@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useLayoutEffect} from 'react';
 import { BackTop } from 'antd';
 import { useViewport } from '../utils/viewportContext';
 import styles from './BasicLayout.module.css'
@@ -6,6 +6,7 @@ import logo from './assets/logo-wb.png'
 import rihgt from './assets/arrowright.png'
 import down from './assets/arrowdown.png'
 import search from './assets/search.png'
+import {getToken} from "../api/server";
 const BasicLayout = ({ children }) => {
     const { width } = useViewport();
     const breakpoint = 760;
@@ -47,7 +48,17 @@ const BasicLayout = ({ children }) => {
         fontSize: 14,
         fontWeight:'bold'
     };
-
+    useLayoutEffect(()=>{
+        console.log('哈哈哈哈')
+   /*     async function getTokenFn(){
+            const aToken = await getToken({
+                "email": "apiuseremail@apiuseremail.com",
+                "password": "123456"
+            });
+            localStorage.setItem('token',aToken.token)
+        }
+        getTokenFn();*/
+    },[])
     return (
         <div style={{paddingTop:'1.95rem'}}>
             {/* 共享的布局部分 */}

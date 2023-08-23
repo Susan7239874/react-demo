@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { message } from 'antd';
+import {getToken} from "../api/server";
 
 const userInfo={
 
@@ -36,12 +37,11 @@ function listParams(config) {
 instance.interceptors.request.use(
   (config) => {
     // 默认所有接口都加入token Bearer
-    if ( userInfo.access_token !== 'undefined') {
-      config.headers['Authorization'] = 'Bearer ' + userInfo.access_token; // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+    if ( localStorage.getItem('token') !== 'undefined') {
+      config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token'); // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
     }
 
-    let appTimestamp = Date.parse(new Date()) / 1000;
-    let appRequestId = uuidv4();
+
     let params = {
       method: config.method,
       path: config.url,
@@ -61,7 +61,6 @@ instance.interceptors.request.use(
         ...config.params,
       };
     }
-
     return config;
   },
   (error) => {
@@ -69,26 +68,39 @@ instance.interceptors.request.use(
     return error;
   },
 );
-
+let isRefreshing = false; // 是否正在刷新token 的标记
+let requests = []; // 缓存所有请求
+/** 刷新token */
+function dealRefreshToken(config) {
+    async function refresh() {
+        if (!isRefreshing) {
+            isRefreshing = true;
+            try {
+                const aToken = await getToken({
+                    "email": "apiuseremail@apiuseremail.com",
+                    "password": "123456"
+                });
+                localStorage.setItem('token',aToken.token)
+                requests.forEach((cb) => cb());
+                requests = [];
+            } catch {
+                message.error('token刷新失败，请重新登录！');
+            } finally {
+                isRefreshing = false;
+            }
+        }
+    }
+    refresh();
+}
 instance.interceptors.response.use(
   (resp) => {
     const { code, msg, data } = resp.data || {};
     if (code) {
-     /* if (code === 667) {
-        userInfo.loginOut();
-        message.error('登录失效，请重新登录！');
-        return Promise.reject(`${msg}`);
-      }
-      if (code === 680) {
-        console.log('无该系统的权限、请联系管理员申请!');
-        return getForbidUrl();
-      }
       // token 失效刷新token
       if (code === 666) {
-        // message.error('登录状态无效，请重新登录！');
         console.log('token失效，刷新token');
         return dealRefreshToken(resp.config);
-      }*/
+      }
       message.error(msg || '网络请求错误！');
       return Promise.reject(`${msg}`);
     }

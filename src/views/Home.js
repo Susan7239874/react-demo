@@ -21,11 +21,11 @@ const Home = () => {
     const [total]=useState(200)
     useEffect(()=>{
         async function initData() {
-            const {data} = await mockRequest(current,pageSize)
-            console.log('data:',data)
-            setProducts(val => [...val, ...data])
+            const {result} = await mockRequest(current,pageSize)
+            console.log('data:',result)
+            setProducts(val => [...val, ...result])
             if(width>breakpoint){
-                setPcList(data)
+                setPcList(result)
             }
         }
         initData();
@@ -33,18 +33,18 @@ const Home = () => {
 
     const [hasMore, setHasMore] = useState(true)
     async function loadMore() {
-        const {data,total,size,count} = await mockRequest(current+1,pageSize)
-        console.log('data:',data)
-        setProducts(val => [...val, ...data])
+        const {result,total,page_size} = await mockRequest(current+1,pageSize)
+        console.log('data:',result)
+        setProducts(val => [...val, ...result])
         setHasMore(total>products?.length)
-        setCurrent(count)
-        setSize(size)
+        setCurrent(current+1)
+        setSize(page_size)
     }
     async function changePcData() {
-        const {data} = await mockRequest(current,pageSize)
-        console.log('data:',data)
-        setProducts(val => [...val, ...data])
-        setPcList([...data])
+        const {result} = await mockRequest(current,pageSize)
+        console.log('data:',result)
+        setProducts(val => [...val, ...result])
+        setPcList([...result])
     }
     useEffect(()=>{
         console.log([current,pageSize])
